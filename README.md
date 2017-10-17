@@ -46,4 +46,8 @@ pod 'YHPhotoBrowser','~> 0.0.3'
 ```
 #  看效果图  demo 详细使用
 
- <img src="https://raw.githubusercontent.com/hackxhj/EllipsePageControl/master/123.png" alt="show" title="show">
+ <img src="https://raw.githubusercontent.com/hackxhj/YHPhotoBrowser/master/png/mem.png" alt="show" title="show">
+ 
+ <img src="https://raw.githubusercontent.com/hackxhj/YHPhotoBrowser/master/png/ok.gif" alt="show" title="show">
+
+ 
