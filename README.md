@@ -6,6 +6,8 @@ https://github.com/gsdios/SDPhotoBrowser 修改
 
 ### 1:优化视图创建，原作者是对每张图片创建了视图 ，本开源使用三个视图实现图片浏览
 
+### 2:大量gif播放内存问题 之前使用sd 现在依赖yywebimage 内存飙升不存在的
+
 ### 2:动画的判断 设置原始位置 适用于各种情况的图片浏览（修改也是给我一个新闻客户端 作图片浏览器）看效果图
 
 ### 3:简化了接口 使用更简单
@@ -15,7 +17,7 @@ https://github.com/gsdios/SDPhotoBrowser 修改
 使用例子：
 ### 支持pod导入
 ```ruby
-pod 'YHPhotoBrowser','~> 0.0.3'
+pod 'YHPhotoBrowser','~> 0.0.4'
 ```
 
 
