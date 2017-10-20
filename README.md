@@ -53,8 +53,10 @@ pod导入方式 依赖 'SDWebImage', '~> 3.7.3'
 
 #  看效果图  demo 详细使用
 
+ <img src="https://raw.githubusercontent.com/hackxhj/YHPhotoBrowser/master/png/yh.gif" alt="show" title="show">
+
  <img src="https://raw.githubusercontent.com/hackxhj/YHPhotoBrowser/master/png/mem.png" alt="show" title="show">
  
  <img src="https://raw.githubusercontent.com/hackxhj/YHPhotoBrowser/master/png/ok.gif" alt="show" title="show">
 
- 
+
