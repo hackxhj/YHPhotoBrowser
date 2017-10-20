@@ -48,8 +48,8 @@ pod 'YHPhotoBrowser','~> 0.0.4'
 ```
 
 ### 注意 
-pod导入方式 依赖 'SDWebImage', '~> 3.7.3'
-如果有冲突 请注释原pod的 SDWebImage 或者手动导入本库 YHPhotoBrowser文件夹、
+pod导入方式 依赖 'YYWebImage'
+如果有冲突 请注释原pod的 YYWebImage 或者手动导入本库 YHPhotoBrowser文件夹、
 
 #  看效果图  demo 详细使用
 
