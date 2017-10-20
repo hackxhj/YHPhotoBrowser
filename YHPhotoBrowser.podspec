@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
  
 
   s.name         = "YHPhotoBrowser"
-  s.version      = "0.0.2"
+  s.version      = "0.0.4"
   s.summary      = "photo browser for ios"
  
   s.homepage     = "https://github.com/hackxhj/YHPhotoBrowser.git"
@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
  
   s.requires_arc = true
 
-  s.dependency 'SDWebImage', '~> 4.0'
+  s.dependency 'YYWebImage'
 
   end
