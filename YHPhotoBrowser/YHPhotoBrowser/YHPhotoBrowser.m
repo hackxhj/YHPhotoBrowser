@@ -8,7 +8,7 @@
 
 #import "YHPhotoBrowser.h"
 #import "YHBrowserImageView.h"
-#import "SDImageCache.h"
+
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
 
@@ -245,8 +245,10 @@
         UIImageView *tempView = [[UIImageView alloc] init];
         tempView.contentMode=UIViewContentModeScaleAspectFit;
         tempView.frame = _sourceRect;
-        UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:_urlImgArr[_indexTag]];
-        tempView.image = cachedImage;
+        [tempView yy_setImageWithURL:[NSURL URLWithString:_urlImgArr[_indexTag]] placeholder:nil];
+        
+      //  UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:_urlImgArr[_indexTag]];
+       // tempView.image = cachedImage;
         [self addSubview:tempView];
         _scrollView.hidden = YES;
         [UIView animateWithDuration:0.4f animations:^{

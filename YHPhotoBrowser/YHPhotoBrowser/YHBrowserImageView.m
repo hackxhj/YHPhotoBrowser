@@ -7,8 +7,7 @@
 //
 
 #import "YHBrowserImageView.h"
-#import "UIImageView+WebCache.h"
-
+//#import "UIImageView+WebCache.h"
 @interface YHBrowserImageView()<UIScrollViewDelegate>
 @property (nonatomic ,assign)BOOL doubleClick;
 @end
@@ -29,10 +28,7 @@
     
     _mainUrl=url;
     [self resetImgView];
-    [self.showImg sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
- 
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-
+    [self.showImg yy_setImageWithURL:url placeholder:placeholder options:YYWebImageOptionIgnoreFailedURL completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
         if (error) {
             UILabel *label = [[UILabel alloc] init];
             label.bounds = CGRectMake(0, 0, 160, 30);
@@ -49,8 +45,11 @@
             self.showImg.image = image;
             [self setNeedsLayout];
         }
-        
-    }];}
+    }];
+ 
+    
+    
+}
 
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -97,10 +96,10 @@
     return _imageScrollView;
 }
 
--(UIImageView*)showImg
+-(YYAnimatedImageView*)showImg
 {
     if(!_showImg){
-        _showImg=[[UIImageView alloc]initWithFrame:self.bounds];
+        _showImg=[[YYAnimatedImageView alloc]initWithFrame:self.bounds];
         _showImg.contentMode = UIViewContentModeScaleAspectFit;
 
     }

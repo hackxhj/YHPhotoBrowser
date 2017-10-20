@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YYWebImage/YYWebImage.h>
+
 
 
 @interface YHBrowserImageView : UIView
 @property(nonatomic,strong) UIScrollView *imageScrollView;
-@property(nonatomic,strong) UIImageView  *showImg;
+@property(nonatomic,strong) YYAnimatedImageView  *showImg;
 
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder;
 -(void)doubleZoomRect:(CGPoint)point;
