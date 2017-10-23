@@ -4,13 +4,13 @@
 https://github.com/gsdios/SDPhotoBrowser 修改
 而来 感谢作者的开源
 
-
+```ruby
 使用场景
 
 UIWebView或者WKWebView或者图片布局自定义的视图
 
 网络图片浏览器 支持gif 图片自适应 图片放大缩小 动画等
-
+```
 
 
 ### 1:优化视图创建，原作者是对每张图片创建了视图 ，本开源使用三个视图实现图片浏览
