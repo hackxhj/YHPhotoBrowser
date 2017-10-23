@@ -4,6 +4,15 @@
 https://github.com/gsdios/SDPhotoBrowser 修改
 而来 感谢作者的开源
 
+
+使用场景
+
+UIWebView或者WKWebView或者图片布局自定义的视图
+
+网络图片浏览器 支持gif 图片自适应 图片放大缩小 动画等
+
+
+
 ### 1:优化视图创建，原作者是对每张图片创建了视图 ，本开源使用三个视图实现图片浏览
 
 ### 2:大量gif播放内存问题 之前使用sd 现在依赖yywebimage 内存飙升不存在的
@@ -31,7 +40,8 @@ pod 'YHPhotoBrowser','~> 0.0.4'
 
 ```objc
     
-    NSArray *srchightArray = @[@"http://ww2.sinaimg.cn/bmiddle/904c2a35jw1emu3ec7kf8j20c10epjsn.jpg",
+ 
+    NSArray *srchightArray = @[@"http://ww2.sinaimg.cn/bmiddle/904c2a35jw1emu3ec7kf8j20c10epjsn.jpg",
                                @"http://ww2.sinaimg.cn/bmiddle/98719e4agw1e5j49zmf21j20c80c8mxi.jpg",
                                @"http://ww2.sinaimg.cn/bmiddle/67307b53jw1epqq3bmwr6j20c80axmy5.jpg",
                                @"http://ww2.sinaimg.cn/bmiddle/9ecab84ejw1emgd5nd6eaj20c80c8q4a.jpg",
@@ -40,8 +50,9 @@ pod 'YHPhotoBrowser','~> 0.0.4'
                                 ];
 
     YHPhotoBrowser *photoView=[[YHPhotoBrowser alloc]init];
-    photoView.urlImgArr=srchightArray;           //网络链接图片的数组
-    photoView.sourceRect=self.imgView3.frame;   // 点击图片的frame 不写就没打开的动画
+    photoView.sourceView=self.wkWebView;         // 图片所在的父容器
+    photoView.urlImgArr=srchightArray;           //网络链接图片的数组
+    photoView.sourceRect=self.imgView3.frame;   // 图片的frame
     photoView.indexTag=0;                      //初始化进去显示的图片下标
     [photoView show];
  
