@@ -220,8 +220,8 @@
 
 - (void)disappear{
     // 非源头图片 点击消失 动画区别
-    if(self.curentIndex==_indexTag&&!CGRectIsEmpty(_sourceRect)){
-        [self restoreViewAnimation];
+    if(self.curentIndex==_indexTag&&!CGRectIsEmpty(_sourceRect)&&_sourceView){
+           [self restoreViewAnimation];
     }else{
         [UIView animateWithDuration:0.3f animations:^{
             self.alpha = 0.0f;
@@ -234,7 +234,7 @@
 
 -(void)openImgAnimayion{
     
-    if(CGRectIsEmpty(_sourceRect)){
+    if(CGRectIsEmpty(_sourceRect)||_sourceView==nil){
         [UIView animateWithDuration:0.4f animations:^{
             self.alpha = 1.0f;
         } completion:^(BOOL finished) {
@@ -244,11 +244,12 @@
         self.alpha = 1;
         UIImageView *tempView = [[UIImageView alloc] init];
         tempView.contentMode=UIViewContentModeScaleAspectFit;
-        tempView.frame = _sourceRect;
         [tempView yy_setImageWithURL:[NSURL URLWithString:_urlImgArr[_indexTag]] placeholder:nil];
         
-      //  UIImage *cachedImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:_urlImgArr[_indexTag]];
-       // tempView.image = cachedImage;
+        CGRect rect = [self.sourceView convertRect:self.sourceRect toView:self];
+
+        tempView.frame = rect;
+
         [self addSubview:tempView];
         _scrollView.hidden = YES;
         [UIView animateWithDuration:0.4f animations:^{
@@ -277,9 +278,11 @@
     tempView.bounds = CGRectMake(0, 0, self.bounds.size.width, h);
     tempView.center = self.center;
     [self addSubview:tempView];
+    CGRect rect = [self.sourceView convertRect:self.sourceRect toView:self];
+
     _saveButton.hidden = YES;
     [UIView animateWithDuration:0.3f animations:^{
-        tempView.frame = _sourceRect;
+        tempView.frame = rect;
         self.backgroundColor = [UIColor clearColor];
         _indexLabel.alpha = 0.1;
     } completion:^(BOOL finished) {
