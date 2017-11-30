@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
  
 
   s.name         = "YHPhotoBrowser"
-  s.version      = "0.0.4"
+  s.version      = "0.0.6"
   s.summary      = "photo browser for ios"
  
   s.homepage     = "https://github.com/hackxhj/YHPhotoBrowser.git"

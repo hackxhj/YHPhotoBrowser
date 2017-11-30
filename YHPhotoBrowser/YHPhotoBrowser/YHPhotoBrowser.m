@@ -85,11 +85,34 @@
     _saveButton.frame = CGRectMake(kScreenWidth-70, self.bounds.size.height - 30, 60, 30);
 }
 
+-(BOOL)isAddPhotoPermissions
+{
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if ([version floatValue]>=11.0){
+        NSString* File = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+        NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:File];
+      if([[dict allKeys]containsObject:@"NSPhotoLibraryAddUsageDescription"])
+        {
+            return  YES;
+        }else{
+            return  NO;
+        }
+    }else
+    {
+        return YES;
+    }
+}
 
 -(void)saveImage
 {
+    if(![self isAddPhotoPermissions]){
+        NSLog(@"请在Info.plist 文件加入 NSPhotoLibraryAddUsageDescription");
+        return;
+    }
+    
     YHBrowserImageView *currImageView=[self getNowImageView];
     UIImageWriteToSavedPhotosAlbum(currImageView.showImg.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
     indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
     indicator.center = self.center;
@@ -326,12 +349,25 @@
 
 -(void)resetZoomState:(NSInteger)index{
  
-    if (_leftBrowserImgView.imageScrollView.zoomScale != 1.0)
-        _leftBrowserImgView.imageScrollView.zoomScale=1.0;
-    if (_midBrowserImgView.imageScrollView.zoomScale != 1.0)
-        _midBrowserImgView.imageScrollView.zoomScale=1.0;
-    if (_rightBrowserImgView.imageScrollView.zoomScale != 1.0)
-        _rightBrowserImgView.imageScrollView.zoomScale=1.0;
+    CGPoint leftPoint=CGPointMake(0, 0);
+    CGPoint midPoint=CGPointMake(kScreenWidth, 0);
+    CGPoint point=self.scrollView.contentOffset;
+    if(CGPointEqualToPoint(point, leftPoint)){
+        if (_midBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _midBrowserImgView.imageScrollView.zoomScale=1.0;
+        if (_rightBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _rightBrowserImgView.imageScrollView.zoomScale=1.0;
+    }else if(CGPointEqualToPoint(point, midPoint)){
+        if (_leftBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _leftBrowserImgView.imageScrollView.zoomScale=1.0;
+        if (_rightBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _rightBrowserImgView.imageScrollView.zoomScale=1.0;
+    }else {
+        if (_leftBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _leftBrowserImgView.imageScrollView.zoomScale=1.0;
+        if (_midBrowserImgView.imageScrollView.zoomScale != 1.0)
+            _midBrowserImgView.imageScrollView.zoomScale=1.0;
+    }
 
 
 }
