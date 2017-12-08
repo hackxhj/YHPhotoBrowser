@@ -201,7 +201,7 @@
     {
         _urlImgArr=urlImgArr;
         _calcIndex=0;
-        [self refreshData];
+         [self initScrollContSize];
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%ld", _calcIndex+1,(long)self.urlImgArr.count];
 
     }
@@ -220,8 +220,10 @@
 -(void)ifNeedScroll:(NSInteger)tag{
     if(tag>_urlImgArr.count-1){
         tag=0;
-    }
-     if(tag>0&&tag<_urlImgArr.count-2)
+     }
+ 
+     // 滚到中间来
+     if((tag>0&&tag<=_urlImgArr.count-2)||(_urlImgArr.count==2&&tag==1))
      {
         [self.scrollView setContentOffset:CGPointMake(kScreenWidth,0) animated:NO];
         _calcIndex=tag-1;
@@ -230,7 +232,7 @@
     }else if(tag==_urlImgArr.count-1)// 最后一个图 需要滚动到最后
     {
         _calcIndex=tag-2;
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth*2,0) animated:NO];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width-kScreenWidth,0) animated:NO];
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%ld", _calcIndex+3,(long)self.urlImgArr.count];
     }
     else{
@@ -319,11 +321,15 @@
     [window addSubview:self];
     
 }
-/**数据刷新*/
-- (void)refreshData {
+-(void)initScrollContSize
+{
     if(_urlImgArr.count<3)
         self.scrollView.contentSize = CGSizeMake(self.frame.size.width *_urlImgArr.count, 0);
-   
+    
+}
+/**数据刷新*/
+- (void)refreshData {
+    [self initScrollContSize];
     [self updateSubImageView:_calcIndex  with:0];
     [self updateSubImageView:_calcIndex+1 with:1];
     [self updateSubImageView:_calcIndex +2 with:2];

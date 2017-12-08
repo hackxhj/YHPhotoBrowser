@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "hackxhj" => "643087041@qq.com" }
  
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
  
 
   s.source       = { :git => "https://github.com/hackxhj/YHPhotoBrowser.git", :tag => s.version}
