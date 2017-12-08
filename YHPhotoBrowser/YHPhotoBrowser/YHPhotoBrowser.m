@@ -197,24 +197,19 @@
 
 
 -(void)setUrlImgArr:(NSArray<NSString *> *)urlImgArr{
-    if(urlImgArr!=_urlImgArr)
-    {
+ 
         _urlImgArr=urlImgArr;
         _calcIndex=0;
          [self initScrollContSize];
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%ld", _calcIndex+1,(long)self.urlImgArr.count];
-
-    }
+ 
 }
 
 -(void)setIndexTag:(NSInteger)indexTag{
-    
-    if(_indexTag!=indexTag)
-    {
-        _indexTag=indexTag;
-        [self ifNeedScroll:indexTag];
-        [self refreshData];
-    }
+   _indexTag=indexTag;
+    [self ifNeedScroll:indexTag];
+    [self refreshData];
+ 
 }
 
 -(void)ifNeedScroll:(NSInteger)tag{
