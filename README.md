@@ -26,7 +26,7 @@ UIWebView或者WKWebView或者图片布局自定义的视图
 使用例子：
 ### 支持pod导入
 ```ruby
-pod 'YHPhotoBrowser','~> 0.0.7'
+pod 'YHPhotoBrowser','~> 0.0.8'
 ```
 
 
