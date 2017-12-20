@@ -224,7 +224,7 @@
         _calcIndex=tag-1;
         _indexLabel.text = [NSString stringWithFormat:@"%ld/%ld", _calcIndex+2,(long)self.urlImgArr.count];
 
-    }else if(tag==_urlImgArr.count-1)// 最后一个图 需要滚动到最后
+    }else if(tag==_urlImgArr.count-1&&_urlImgArr.count>1)// 最后一个图 需要滚动到最后
     {
         _calcIndex=tag-2;
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width-kScreenWidth,0) animated:NO];
