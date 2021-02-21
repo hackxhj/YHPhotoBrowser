@@ -8,8 +8,7 @@
 
 #import "ViewController.h"
 #import "YHPhotoBrowser.h"
-#import  "YYWebImage.h"
-
+#import <YYWebImage/YYWebImage.h>
 @interface ViewController ()
 
 @end
@@ -21,6 +20,8 @@
     // Do any additional setup after loading the view, typically from a nib.
  
     [self.imgView3 yy_setImageWithURL:[NSURL URLWithString:@"http://ww2.sinaimg.cn/bmiddle/904c2a35jw1emu3ec7kf8j20c10epjsn.jpg"] placeholder:nil];
+    
+ 
     self.imgView3.contentMode = UIViewContentModeScaleAspectFit;
 
    

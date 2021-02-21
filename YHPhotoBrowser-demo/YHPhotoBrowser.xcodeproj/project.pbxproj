@@ -190,8 +190,6 @@
 				3F8A34231F90AFDE00B498EA /* Sources */,
 				3F8A34241F90AFDE00B498EA /* Frameworks */,
 				3F8A34251F90AFDE00B498EA /* Resources */,
-				15AAC63C2C49061D90A7D4FB /* [CP] Embed Pods Frameworks */,
-				C6044D20BD30AC5B274231B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,36 +309,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15AAC63C2C49061D90A7D4FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YHPhotoBrowser/Pods-YHPhotoBrowser-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C6044D20BD30AC5B274231B9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YHPhotoBrowser/Pods-YHPhotoBrowser-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F38E75B76647C8C3722335C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

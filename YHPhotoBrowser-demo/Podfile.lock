@@ -8,13 +8,28 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
+  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
   - YYWebImage
+
+SPEC REPOS:
+  trunk:
+    - YYCache
+    - YYWebImage
+
+EXTERNAL SOURCES:
+  YYImage:
+    :git: https://github.com/QiuYeHong90/YYImage.git
+
+CHECKOUT OPTIONS:
+  YYImage:
+    :commit: 4164acb76e8979c0612530bd874e099a1fa51e9d
+    :git: https://github.com/QiuYeHong90/YYImage.git
 
 SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
-  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 3faedcc6e0ba7fb7784b6854d8e989cabfbdce4d
+PODFILE CHECKSUM: 301510ac5394626833e6e74efd7c2171f4b1de90
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.9.3
